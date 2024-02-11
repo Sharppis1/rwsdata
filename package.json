@@ -2,7 +2,11 @@
     "name": "RWSDATA",
     "description": "Visualize digitraffic data from RWS point of view",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-gzip": "0.0.3",
+        "node-red-contrib-web-worldmap": "4.6.2",
+        "node-red-dashboard": "3.6.2"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
