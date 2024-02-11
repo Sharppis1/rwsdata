@@ -1,0 +1,846 @@
+[
+    {
+        "id": "d041a154835e8192",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "M.Hammar 2024",
+        "env": []
+    },
+    {
+        "id": "e4f71971d0bcdb31",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1181dfa631df229a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "RWSDATA",
+            "hideToolbar": "true",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "63b4e26d3a611a42",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e4f71971d0bcdb31",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "52ef42ae9156b986",
+        "type": "ui_spacer",
+        "z": "d041a154835e8192",
+        "name": "spacer",
+        "group": "63b4e26d3a611a42",
+        "order": 6,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "39056a31bb85b7f8",
+        "type": "inject",
+        "z": "d041a154835e8192",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "be91e2e190f049c3",
+                "a9892829dcdd4d71"
+            ]
+        ]
+    },
+    {
+        "id": "be91e2e190f049c3",
+        "type": "http request",
+        "z": "d041a154835e8192",
+        "name": "Weather",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "https://tie.digitraffic.fi/api/weather/v1/stations/data",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Accept-Encoding",
+                "keyValue": "",
+                "valueType": "gzip",
+                "valueValue": ""
+            }
+        ],
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "1b70696e4d8caae2"
+            ]
+        ]
+    },
+    {
+        "id": "478bf76a55e76238",
+        "type": "json",
+        "z": "d041a154835e8192",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "1e566679b49364ea"
+            ]
+        ]
+    },
+    {
+        "id": "a9892829dcdd4d71",
+        "type": "http request",
+        "z": "d041a154835e8192",
+        "name": "Stations",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "https://tie.digitraffic.fi/api/weather/v1/stations",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Accept-Encoding",
+                "keyValue": "",
+                "valueType": "gzip",
+                "valueValue": ""
+            }
+        ],
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "daf5b97ef5b28398"
+            ]
+        ]
+    },
+    {
+        "id": "ef914db1affb584a",
+        "type": "json",
+        "z": "d041a154835e8192",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "59a6d69d9a79e87b"
+            ]
+        ]
+    },
+    {
+        "id": "c1ab9702a724ada4",
+        "type": "function",
+        "z": "d041a154835e8192",
+        "name": "function 4",
+        "func": "//var data = msg.payload.data;\n\nvar data=global.get(\"weather\");\nvar coordinate = msg.payload.coordinate;\nvar coordinate = global.get(\"coordinates\");\nvar sensorInput = msg.payload.sensor;\nvar operator = msg.payload.operator;\nvar inputValue = msg.payload.inputValue;\nvar filteredStations = [];\n\nvar geojson = {};\n\ngeojson['type'] = 'FeatureCollection';\ngeojson['features'] = [];\n\nlet countData = data['stations'].length;\n\nfunction returnCoordinates(coordinates,id){\n    for (var i = 0; i < coordinates['features'].length; i++) {\n        if (coordinates['features'][i].id == id) {\n            return coordinates['features'][i]\n        }\n    }\n}\n\nfor (let index = 0; index < countData; index++) {\n    let station = data['stations'][index];\n\n    let countSensorValue = data['stations'][index]['sensorValues'].length\n\n    for(let index2 = 0; index2 < countSensorValue; index2++){\n        let sensor = data['stations'][index]['sensorValues'][index2]\n\n        let stationData = returnCoordinates(coordinate, data['stations'][index]['id'])\n        let statement = eval(sensor['value']+\" \"+operator+\" \"+inputValue);\n        if(sensor['name'] === sensorInput && statement){\n\n            var newFeature = {\n                \"type\": \"Feature\",\n                \"name\": \"testi\",\n                \"geometry\": {\n                    \"type\": \"Point\",\n                    \"coordinates\": [parseFloat(stationData.geometry.coordinates[0]), parseFloat(stationData.geometry.coordinates[1])]\n                },\n                \"properties\": {\n                    //\"title\": \"aseman nimi\",\n                    \"Nimi\": stationData.properties.name,\n                    \"Sensori\":sensorInput, \n                    \"Arvo\": sensor['value'],\n                    \"Keruun tila\":stationData.properties.collectionStatus,\n                    \"Aseman tila\":stationData.properties.state,\n                    \"Asemaid\": data['stations'][index]['id']\n                    //\"description\": sensor['name']\n                }\n            }\n            geojson['features'].push(newFeature)\n        }\n    }\n}\n\nvar m = {overlay:\"rwsdata\", geojson:geojson, fit:true};\nmsg.payload = {command:{map:m}};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 560,
+        "wires": [
+            [
+                "4f975ddfd376c915"
+            ]
+        ]
+    },
+    {
+        "id": "1b70696e4d8caae2",
+        "type": "gzip",
+        "z": "d041a154835e8192",
+        "name": "",
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "478bf76a55e76238"
+            ]
+        ]
+    },
+    {
+        "id": "daf5b97ef5b28398",
+        "type": "gzip",
+        "z": "d041a154835e8192",
+        "name": "",
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "ef914db1affb584a"
+            ]
+        ]
+    },
+    {
+        "id": "4f975ddfd376c915",
+        "type": "ui_worldmap",
+        "z": "d041a154835e8192",
+        "group": "63b4e26d3a611a42",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "lat": "64.96",
+        "lon": "27.59",
+        "zoom": "5",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "1",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 940,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8a4d22a328b764d4",
+        "type": "ui_dropdown",
+        "z": "d041a154835e8192",
+        "name": "sensor",
+        "label": "",
+        "tooltip": "",
+        "place": "Sensori valinta",
+        "group": "63b4e26d3a611a42",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "ILMA",
+                "value": "ILMA",
+                "type": "str"
+            },
+            {
+                "label": "PWD_STATUS",
+                "value": "PWD_STATUS",
+                "type": "str"
+            },
+            {
+                "label": "KITKA1",
+                "value": "KITKA1",
+                "type": "str"
+            },
+            {
+                "label": "TIE_1",
+                "value": "TIE_1",
+                "type": "str"
+            },
+            {
+                "label": "KASTEPISTE",
+                "value": "KASTEPISTE",
+                "type": "str"
+            },
+            {
+                "label": "MAKSIMITUULI",
+                "value": "MAKSIMITUULI",
+                "type": "str"
+            },
+            {
+                "label": "SADE_INTENSITEETTI",
+                "value": "SADE_INTENSITEETTI",
+                "type": "str"
+            },
+            {
+                "label": "SADESUMMA",
+                "value": "SADESUMMA",
+                "type": "str"
+            },
+            {
+                "label": "SADE_TILA",
+                "value": "SADE_TILA",
+                "type": "str"
+            },
+            {
+                "label": "PWD_TILA",
+                "value": "PWD_TILA",
+                "type": "str"
+            },
+            {
+                "label": "DSC_STAT1",
+                "value": "DSC_STAT1",
+                "type": "str"
+            },
+            {
+                "label": "DSC_VASTAANOTTIMEN_PUHTAUS2",
+                "value": "DSC_VASTAANOTTIMEN_PUHTAUS2",
+                "type": "str"
+            },
+            {
+                "label": "DSC_VASTAANOTTIMEN_PUHTAUS1",
+                "value": "DSC_VASTAANOTTIMEN_PUHTAUS1",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "3ba1d787dd341ab2"
+            ]
+        ]
+    },
+    {
+        "id": "3ba1d787dd341ab2",
+        "type": "change",
+        "z": "d041a154835e8192",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "sensor",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "95391a0923f3d019"
+            ]
+        ]
+    },
+    {
+        "id": "fc3a6af1cb9b34dc",
+        "type": "ui_dropdown",
+        "z": "d041a154835e8192",
+        "name": "operator",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "63b4e26d3a611a42",
+        "order": 4,
+        "width": 1,
+        "height": 1,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "=",
+                "value": "===",
+                "type": "str"
+            },
+            {
+                "label": ">=",
+                "value": ">=",
+                "type": "str"
+            },
+            {
+                "label": "<=",
+                "value": "<=",
+                "type": "str"
+            },
+            {
+                "label": "<",
+                "value": "<",
+                "type": "str"
+            },
+            {
+                "label": ">",
+                "value": ">",
+                "type": "str"
+            },
+            {
+                "label": "!=",
+                "value": "!=",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 200,
+        "y": 560,
+        "wires": [
+            [
+                "b229e58ecaee5653"
+            ]
+        ]
+    },
+    {
+        "id": "b229e58ecaee5653",
+        "type": "change",
+        "z": "d041a154835e8192",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "operator",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 560,
+        "wires": [
+            [
+                "95391a0923f3d019"
+            ]
+        ]
+    },
+    {
+        "id": "d6ad80ddd692eadc",
+        "type": "change",
+        "z": "d041a154835e8192",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "inputValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 600,
+        "wires": [
+            [
+                "95391a0923f3d019"
+            ]
+        ]
+    },
+    {
+        "id": "95391a0923f3d019",
+        "type": "join",
+        "z": "d041a154835e8192",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "1",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 610,
+        "y": 560,
+        "wires": [
+            [
+                "c1ab9702a724ada4",
+                "e20a92f5023ecdbb"
+            ]
+        ]
+    },
+    {
+        "id": "dc7f4960b2dbd6c2",
+        "type": "ui_text_input",
+        "z": "d041a154835e8192",
+        "name": "",
+        "label": "Arvo",
+        "tooltip": "",
+        "group": "63b4e26d3a611a42",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "mode": "number",
+        "delay": "1500",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 190,
+        "y": 620,
+        "wires": [
+            [
+                "d6ad80ddd692eadc"
+            ]
+        ]
+    },
+    {
+        "id": "1e566679b49364ea",
+        "type": "change",
+        "z": "d041a154835e8192",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "weather",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "312b88b13f13f2f3"
+            ]
+        ]
+    },
+    {
+        "id": "59a6d69d9a79e87b",
+        "type": "change",
+        "z": "d041a154835e8192",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "coordinates",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 340,
+        "wires": [
+            [
+                "174d9813fd67b9a5"
+            ]
+        ]
+    },
+    {
+        "id": "fb6456453ebdf076",
+        "type": "comment",
+        "z": "d041a154835e8192",
+        "name": "",
+        "info": "rajapinnat pitäisi vaihtaa v1 => v2",
+        "x": 220,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e20a92f5023ecdbb",
+        "type": "ui_text",
+        "z": "d041a154835e8192",
+        "group": "63b4e26d3a611a42",
+        "order": 7,
+        "width": 12,
+        "height": 1,
+        "name": "",
+        "label": "Hakulauseke",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 770,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "714ebd6f326826a8",
+        "type": "ui_button",
+        "z": "d041a154835e8192",
+        "name": "",
+        "group": "63b4e26d3a611a42",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Päivitä tausta-aineisto Digitrafficistä",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Päivitetään aineistoa...",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "be91e2e190f049c3",
+                "a9892829dcdd4d71",
+                "f1682ab3ca48a619"
+            ]
+        ]
+    },
+    {
+        "id": "174d9813fd67b9a5",
+        "type": "function",
+        "z": "d041a154835e8192",
+        "name": "function 5",
+        "func": "var weatherDate = global.get(\"coordinates\");\n\nweatherDate = weatherDate['dataUpdatedTime'];\n\nmsg = {payload: weatherDate}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 340,
+        "wires": [
+            [
+                "d1303094a74d3ca2"
+            ]
+        ]
+    },
+    {
+        "id": "b64a991d2527322e",
+        "type": "ui_text",
+        "z": "d041a154835e8192",
+        "group": "63b4e26d3a611a42",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "Havaintodata: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1020,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d1303094a74d3ca2",
+        "type": "ui_text",
+        "z": "d041a154835e8192",
+        "group": "63b4e26d3a611a42",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "Asemadata: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1010,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "312b88b13f13f2f3",
+        "type": "function",
+        "z": "d041a154835e8192",
+        "name": "function 6",
+        "func": "var weatherDate = global.get(\"weather\");\n\nweatherDate = weatherDate['dataUpdatedTime'];\n\nmsg = {payload: weatherDate}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "b64a991d2527322e"
+            ]
+        ]
+    },
+    {
+        "id": "f1682ab3ca48a619",
+        "type": "ui_toast",
+        "z": "d041a154835e8192",
+        "position": "top right",
+        "displayTime": "15",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 830,
+        "y": 160,
+        "wires": []
+    }
+]
